@@ -1,0 +1,1 @@
+## components are nothing but the moduls we are going to use int the project
