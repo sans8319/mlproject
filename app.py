@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
-from src.pipeline.predict_pipeline import CustomData,PredictPipeline
+from src.piplelines.predict_pipeline import CustomData,PredictPipeline
 
 application=Flask(__name__)
 
@@ -30,7 +30,9 @@ def predict_datapoint():
             writing_score=float(request.form.get('reading_score'))
 
         )
-        pred_df=data.get_data_as_data_frame()
+        print("Data type:", type(data))
+        print("Data attributes:", dir(data))
+        pred_df =data.get_data_as_data_frame()
         print(pred_df)
         print("Before Prediction")
 
@@ -42,4 +44,4 @@ def predict_datapoint():
     
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")   
+    app.run(host="0.0.0.0",debug = True)   
